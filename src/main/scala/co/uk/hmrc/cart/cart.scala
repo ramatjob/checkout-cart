@@ -15,4 +15,10 @@ package object cart {
   def calculateItemsTotal(items: Seq[Item]): BigDecimal =
     items.foldLeft(BigDecimal(0))(_ + _.cost)
 
+  def discountPriceForItems(items: Seq[Item], item: Item, offerVal: Int): BigDecimal = {
+    val totalItemCount = items.count(_ == item)
+    val discountItemCount = totalItemCount / offerVal
+    discountItemCount * item.cost
+  }
+
 }
