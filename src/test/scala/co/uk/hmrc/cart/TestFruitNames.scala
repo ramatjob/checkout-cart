@@ -1,6 +1,7 @@
 package co.uk.hmrc.cart
 
 import org.scalatest.{Matchers, WordSpecLike}
+import co.uk.hmrc.cart._
 
 class TestFruitNames extends WordSpecLike with Matchers{
 
@@ -12,7 +13,7 @@ class TestFruitNames extends WordSpecLike with Matchers{
 
       val expectedSumOfCart = (Apple.cost * 3) + (Orange.cost * 3)
 
-      val actualSumOfCart = calculateItemsTotal(fruitList)
+      val actualSumOfCart = calculateItemsTotal(addAllTheCartItems(fruitList))
 
       actualSumOfCart shouldBe expectedSumOfCart
 
