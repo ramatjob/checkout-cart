@@ -21,4 +21,10 @@ package object cart {
     discountItemCount * item.cost
   }
 
+  def finalCheckoutCart(items: Seq[String]): BigDecimal = {
+    val cart = addAllTheCartItems(items)
+    val total = calculateItemsTotal(cart)
+    total - discountPriceForItems(cart, Apple, 2) - discountPriceForItems(cart, Orange, 3)
+  }
+
 }
